@@ -60,4 +60,18 @@ public class StudentController {
     public List<Student> getStudentByName(@RequestParam String name) {
         return studentService.getStudentsByName(name);
     }
+
+    @RequestMapping("/contain_name")
+    @GetMapping
+    //contain_name?contain_name=T
+    public List<Student> getStudentByNameContainStr(@RequestParam String name) {
+        return studentService.getStudentsByNameContainStr(name);
+    }
+
+    @RequestMapping("/year_class")
+    @GetMapping
+    //year_class?year=2022&number=1
+    public List<Student> getStudentByNameContainStr(@RequestParam int year, @RequestParam int number) {
+        return studentService.getStudentsInYearClass(year, number);
+    }
 }
