@@ -7,6 +7,7 @@ import com.example.demo.model.Student;
 import com.example.demo.service.StudentService;
 import org.apache.coyote.Request;
 import org.apache.coyote.Response;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,7 @@ public class StudentController {
     }
 
     @GetMapping
+    @RequiresPermissions("student:read")
     public List<Student> getAllStudent () {
         return studentService.getAllStudent();
     }
